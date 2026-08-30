@@ -32,15 +32,13 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
+      - name: Terraform Init
+        run: terraform init
       # - name: Terraform Init
       #   env:
-      #     TF_SKIP_PROVIDER_VERIFY: "1" # SKIN -> SKIP으로 수정
-      #   run: terraform init
-      - name: Terraform Init
-        env:
-          TF_SKIP_PROVIDER_VERIFY: "1"
-          CHECKPOINT_DISABLE: "1"
-        run: terraform init -upgrade
+      #     TF_SKIP_PROVIDER_VERIFY: "1"
+      #     CHECKPOINT_DISABLE: "1"
+      #   run: terraform init -upgrade
 
       - name: Terraform Plan
         run: terraform plan
