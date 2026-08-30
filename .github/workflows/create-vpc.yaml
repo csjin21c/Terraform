@@ -33,6 +33,8 @@ jobs:
           aws-region: ap-south-1
 
       - name: Terraform Init
+        env:
+          TF_SKIN_PROVIDER_VERIFY: "1"
         run: terraform init
 
       - name: Terraform Plan
