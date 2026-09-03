@@ -30,7 +30,9 @@ terraform {
 # AWS 프로바이더 설정 블록
 provider "aws" {
   # 인프라가 생성될 물리적 위치(리전)를 지정합니다.
-  region = "ap-south-1" 
-  default_tags = local.default_tags
+  region = var.baseInfo.region 
+  default_tags  {
+    tags =local.default_tags
+  }
 }
 
