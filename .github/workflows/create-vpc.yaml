@@ -54,7 +54,7 @@ jobs:
         run: terraform plan -no-color
         continue-on-error: false
 
-      # 9. 인프라 반영 (Apply) - main 브랜치에 푸시(Merge)될 때만 실행
-      - name: Terraform Apply
+      # 9. 인프라 반영 (Apply) or - main 브랜치에 푸시(Merge)될 때만 실행
+      - name: Terraform Apply or Destory
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: terraform apply -auto-approve
+        run: terraform destroy -auto-approve
