@@ -1,8 +1,5 @@
 locals {
-  default_tags = {
-    Owner       = "ian"
-    Environment = "dev"
-    Class       = "bipa17"
-    Tool        = "terraform"
-  }
+  tags_header = var.baseInfo.owner !="" && var.baseInfo.project !="" ? "${var.baseInfo.owner}-${var.baseInfo.project}-" : (
+                var.baseInfo.owner =="" && var.baseInfo.project !="" ? "${var.baseInfo.project}-" : (
+                var.baseInfo.owner !="" && var.baseInfo.project =="" ? "${var.baseInfo.owner}-" : "default-"))
 }
