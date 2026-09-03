@@ -17,7 +17,6 @@ terraform {
       version = "~> 6.0"
       # version = "~> 5.80.0"
     }
-    default_tags = local.default_tags
   }
   backend "s3" {
     bucket         = "bipa17-instructor-bucket"                             # 위에서 만든 S3 버킷 이름
@@ -32,5 +31,6 @@ terraform {
 provider "aws" {
   # 인프라가 생성될 물리적 위치(리전)를 지정합니다.
   region = "ap-south-1" 
+  default_tags = local.default_tags
 }
 
